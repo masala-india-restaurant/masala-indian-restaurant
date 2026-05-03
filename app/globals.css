@@ -1,0 +1,1124 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:ital,opsz,wdth,wght,GRAD@0,8,100,400..1000,0&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-saffron: var(--saffron);
+  --color-saffron-light: var(--saffron-light);
+  --color-saffron-dark: var(--saffron-dark);
+  --color-maroon: var(--maroon);
+  --color-maroon-dark: var(--maroon-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-dark: var(--dark);
+  --color-muted: var(--muted);
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+
+  --font-heading: "Google Sans Flex", "Helvetica Neue", system-ui, sans-serif;
+  --font-body: "Google Sans Flex", "Helvetica Neue", system-ui, sans-serif;
+  --font-sans: "Google Sans Flex", "Helvetica Neue", system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light dark;
+  --cream: #fbf4e6;
+  --cream-dark: #efe1c4;
+  --saffron: #d97706;
+  --saffron-light: #f5a524;
+  --saffron-dark: #a95405;
+  --maroon: #6f1717;
+  --maroon-dark: #4b0f0f;
+  --gold: #c9973c;
+  --gold-light: #e7be62;
+  --dark: #140c07;
+  --muted: oklch(0.97 0 0);
+  --page: #fbf4e6;
+  --surface: #fff9ed;
+  --surface-soft: #efe1c4;
+  --ink: #1a0f05;
+  --ink-muted: #725f52;
+  --line: rgba(26, 15, 5, 0.14);
+  --ambient-accent: #d97706;
+  --lowhp-accent: #7df9c5;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --cream: #f6ead0;
+    --cream-dark: #2a2119;
+    --saffron: #f08a0a;
+    --saffron-light: #ffb547;
+    --saffron-dark: #c66c06;
+    --maroon: #7e211f;
+    --maroon-dark: #2a0c0b;
+    --gold: #d7a84b;
+    --gold-light: #f1c86b;
+    --dark: #0d0906;
+    --muted: #c4b39f;
+    --page: #120d09;
+    --surface: #1b140f;
+    --surface-soft: #241a13;
+    --ink: #f8ecd7;
+    --ink-muted: #c4b39f;
+    --line: rgba(248, 236, 215, 0.14);
+    --ambient-accent: #f08a0a;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --cream: #fbf4e6;
+  --cream-dark: #efe1c4;
+  --saffron: #d97706;
+  --saffron-light: #f5a524;
+  --saffron-dark: #a95405;
+  --maroon: #6f1717;
+  --maroon-dark: #4b0f0f;
+  --gold: #c9973c;
+  --gold-light: #e7be62;
+  --dark: #140c07;
+  --muted: #725f52;
+  --page: #fbf4e6;
+  --surface: #fff9ed;
+  --surface-soft: #efe1c4;
+  --ink: #1a0f05;
+  --ink-muted: #725f52;
+  --line: rgba(26, 15, 5, 0.14);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --cream: #f6ead0;
+  --cream-dark: #2a2119;
+  --saffron: #f08a0a;
+  --saffron-light: #ffb547;
+  --saffron-dark: #c66c06;
+  --maroon: #7e211f;
+  --maroon-dark: #2a0c0b;
+  --gold: #d7a84b;
+  --gold-light: #f1c86b;
+  --dark: #0d0906;
+  --muted: #c4b39f;
+  --page: #120d09;
+  --surface: #1b140f;
+  --surface-soft: #241a13;
+  --ink: #f8ecd7;
+  --ink-muted: #c4b39f;
+  --line: rgba(248, 236, 215, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+::view-transition-group(site-header) {
+  z-index: 100;
+  animation: none;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition-group(.masala-forward),
+::view-transition-group(.masala-back) {
+  overflow: clip;
+  background: var(--dark);
+}
+
+::view-transition-old(.masala-forward) {
+  animation: masala-route-old-forward 460ms cubic-bezier(0.55, 0, 0.22, 1) both;
+}
+
+::view-transition-new(.masala-forward) {
+  animation: masala-route-new-forward 720ms cubic-bezier(0.2, 0.9, 0.22, 1) both;
+}
+
+::view-transition-old(.masala-back) {
+  animation: masala-route-old-back 460ms cubic-bezier(0.55, 0, 0.22, 1) both;
+}
+
+::view-transition-new(.masala-back) {
+  animation: masala-route-new-back 720ms cubic-bezier(0.2, 0.9, 0.22, 1) both;
+}
+
+.masala-entry-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--saffron) 28%, transparent), transparent 34rem),
+    linear-gradient(135deg, var(--maroon-dark), var(--dark) 46%, #050302);
+}
+
+.masala-entry-transition__glow {
+  position: absolute;
+  width: min(38rem, 86vw);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--saffron-light) 26%, transparent) 0 22%, transparent 64%),
+    radial-gradient(circle, color-mix(in srgb, var(--maroon) 38%, transparent), transparent 72%);
+  filter: blur(8px);
+}
+
+.masala-entry-transition__wipe {
+  position: absolute;
+  inset: -24%;
+  background:
+    linear-gradient(105deg, transparent 0 36%, color-mix(in srgb, var(--saffron-light) 72%, transparent) 47%, transparent 60%),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--gold-light) 20%, transparent), transparent);
+  transform: skewX(-14deg);
+}
+
+.masala-entry-transition__brand {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 12vw, 8rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 18px 54px rgba(0, 0, 0, 0.55);
+}
+
+.masala-entry-transition__line {
+  position: absolute;
+  z-index: 1;
+  width: min(18rem, 48vw);
+  height: 1px;
+  margin-top: clamp(5rem, 14vw, 9rem);
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes masala-route-old-forward {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0.22;
+    filter: blur(10px);
+    transform: translateX(-42px) scale(0.985);
+  }
+}
+
+@keyframes masala-route-new-forward {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 0 72%);
+    filter: blur(14px) saturate(1.25);
+    transform: translateX(48px) scale(1.018);
+  }
+  46% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: blur(2px) saturate(1.08);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0);
+    filter: blur(0) saturate(1);
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes masala-route-old-back {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0.22;
+    filter: blur(10px);
+    transform: translateX(42px) scale(0.985);
+  }
+}
+
+@keyframes masala-route-new-back {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 72% 0 0);
+    filter: blur(14px) saturate(1.25);
+    transform: translateX(-48px) scale(1.018);
+  }
+  46% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: blur(2px) saturate(1.08);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0);
+    filter: blur(0) saturate(1);
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-bounce-arrow {
+  animation: bounce-arrow 2s ease-in-out infinite;
+}
+
+.masala-btn {
+  --button-fill: var(--ambient-accent);
+  --btn-surface: color-mix(in srgb, var(--button-fill) 48%, #0a0806 52%);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--btn-surface) 70%, #fff 14%);
+  border-radius: 1rem 0.28rem 1rem 0.28rem;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  color: var(--cream);
+  transition:
+    border-color 240ms ease,
+    color 240ms ease,
+    transform 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.masala-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--btn-surface) 90%, #000 10%),
+    var(--btn-surface)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 360ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.masala-btn::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  z-index: -1;
+  border: 1px solid color-mix(in srgb, var(--btn-surface) 20%, #fff 12%);
+  border-radius: 0.65rem 0.18rem 0.65rem 0.18rem;
+  pointer-events: none;
+}
+
+.masala-btn:hover,
+.masala-btn:focus-visible {
+  color: var(--cream);
+  border-color: color-mix(in srgb, var(--btn-surface) 64%, #fff 22%);
+  box-shadow: 0 22px 52px color-mix(in srgb, var(--btn-surface) 35%, transparent);
+  transform: translateY(-1px);
+}
+
+.masala-btn:hover::before,
+.masala-btn:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.masala-btn-filled::before {
+  transform: scaleX(1);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--btn-surface) 90%, #000 10%),
+    var(--btn-surface)
+  );
+}
+
+.masala-btn-filled {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--btn-surface) 90%, #000 10%),
+    var(--btn-surface)
+  );
+}
+
+.masala-btn-filled:hover::before,
+.masala-btn-filled:focus-visible::before {
+  transform: scaleX(1.04);
+}
+
+.masala-nav-link {
+  position: relative;
+}
+
+main section[id] {
+  scroll-margin-top: 8.5rem;
+}
+
+.masala-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.55rem;
+  height: 2px;
+  background: var(--ambient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms ease;
+}
+
+.masala-nav-link:hover::after,
+.masala-nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+.masala-mobile-nav-link {
+  position: relative;
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  padding-left: 2rem;
+}
+
+.masala-mobile-nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  width: 0.25rem;
+  height: 1.55rem;
+  border-radius: 999px;
+  background: var(--ambient-accent);
+  opacity: 0;
+  transform: translateY(-50%) scaleY(0.5);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.masala-mobile-nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.masala-mobile-nav-link[data-active="true"] {
+  border-color: color-mix(in srgb, var(--ambient-accent) 32%, transparent);
+  background: color-mix(in srgb, var(--ambient-accent) 18%, #070809 82%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.masala-mobile-nav-link[data-active="true"]::before {
+  opacity: 1;
+  transform: translateY(-50%) scaleY(1);
+}
+
+.masala-menu-active {
+  background: color-mix(in srgb, var(--ambient-accent) 24%, #070809 76%);
+  color: var(--cream);
+}
+
+.masala-menu-active-code {
+  color: color-mix(in srgb, var(--ambient-accent) 70%, var(--cream) 30%);
+}
+
+.menu-subnav {
+  isolation: isolate;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* Gold divider */
+.gold-rule {
+  display: block;
+  width: 4rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C9973C, transparent);
+}
+
+/* Section label style */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: none;
+  color: var(--saffron);
+}
+
+/* ============================================================
+   Parchment page background — soft, elegant, never busy.
+   Heavy lifting (themed motifs) lives on the section skins.
+   ============================================================ */
+.parchment-bg {
+  position: relative;
+  background-color: #f4e7c4;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 245, 220, 0.65), transparent 65%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(180, 135, 70, 0.10), transparent 70%),
+    linear-gradient(180deg, #f7ecd1 0%, #f0e0b6 55%, #e9d6a3 100%);
+}
+
+.parchment-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/textures/paper-grain.svg");
+  background-size: 220px;
+  background-repeat: repeat;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.parchment-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0, 0, 0, 0), rgba(120, 75, 25, 0.06) 80%, rgba(120, 75, 25, 0.10) 100%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(0, 0, 0, 0), rgba(120, 75, 25, 0.06) 80%, rgba(120, 75, 25, 0.10) 100%);
+  z-index: 0;
+}
+
+.parchment-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="dark"] .parchment-bg {
+  background-color: var(--page);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% 0%, color-mix(in srgb, var(--saffron) 7%, transparent), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, color-mix(in srgb, var(--maroon) 12%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--surface) 0%, var(--page) 100%);
+}
+
+[data-theme="dark"] .parchment-bg::before {
+  opacity: 0.18;
+  mix-blend-mode: screen;
+}
+
+[data-theme="dark"] .parchment-bg::after {
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, transparent, rgba(0, 0, 0, 0.25) 100%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, transparent, rgba(0, 0, 0, 0.30) 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .parchment-bg {
+    background-color: var(--page);
+    background-image:
+      radial-gradient(ellipse 90% 60% at 50% 0%, color-mix(in srgb, var(--saffron) 7%, transparent), transparent 70%),
+      radial-gradient(ellipse 90% 60% at 50% 100%, color-mix(in srgb, var(--maroon) 12%, transparent), transparent 70%),
+      linear-gradient(180deg, var(--surface) 0%, var(--page) 100%);
+  }
+
+  :root:not([data-theme="light"]) .parchment-bg::before {
+    opacity: 0.18;
+    mix-blend-mode: screen;
+  }
+
+  :root:not([data-theme="light"]) .parchment-bg::after {
+    background:
+      radial-gradient(ellipse 70% 40% at 50% 0%, transparent, rgba(0, 0, 0, 0.25) 100%),
+      radial-gradient(ellipse 70% 40% at 50% 100%, transparent, rgba(0, 0, 0, 0.30) 100%);
+  }
+}
+
+/* ============================================================
+   Section skins — themed backdrops per menu category.
+   Each skin contains its motif so it feels intentional, not
+   sprayed across the whole page.
+   ============================================================ */
+.section-skin {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  padding: 1.5rem 0.25rem 2rem;
+  border: none;
+  box-shadow: none;
+}
+
+@media (min-width: 640px) {
+  .section-skin {
+    padding: 2rem 0.5rem 2.5rem;
+  }
+}
+
+.section-skin > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Atmosphere layer — masked on all four sides so adjacent sections dissolve into each other */
+.section-skin > .section-skin__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image:
+    linear-gradient(180deg, transparent 0, #000 1.25rem, #000 calc(100% - 1.5rem), transparent 100%),
+    linear-gradient(90deg, transparent 0, #000 1.25rem, #000 calc(100% - 1.25rem), transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(180deg, transparent 0, #000 1.25rem, #000 calc(100% - 1.5rem), transparent 100%),
+    linear-gradient(90deg, transparent 0, #000 1.25rem, #000 calc(100% - 1.25rem), transparent 100%);
+          mask-composite: intersect;
+}
+
+/* ----- Default skin ----- */
+.section-skin--default .section-skin__bg {
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 50%, color-mix(in srgb, var(--gold) 6%, transparent), transparent 80%);
+}
+
+/* ----- Special skin (festive rangoli mandala + saffron glow) ----- */
+.section-skin--special .section-skin__bg {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 60%, color-mix(in srgb, var(--saffron) 10%, transparent), transparent 75%),
+    radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--maroon) 8%, transparent), transparent 65%);
+}
+
+.section-skin--special::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/textures/mandala.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(640px, 110%) auto;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+.section-skin--special::after {
+  content: none;
+}
+
+/* ----- Tandoori skin (smoky charcoal + radiating embers) ----- */
+.section-skin--tandoori .section-skin__bg {
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(217, 119, 6, 0.14), transparent 65%),
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(111, 23, 23, 0.08), transparent 70%);
+}
+
+.section-skin--tandoori::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-conic-gradient(
+      from -90deg at 50% 102%,
+      transparent 0deg 7.5deg,
+      rgba(217, 119, 6, 0.06) 7.5deg 8deg
+    );
+  -webkit-mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 70%, transparent 100%);
+          mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-skin--tandoori::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 92%, rgba(255, 168, 80, 0.55) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 32% 96%, rgba(255, 188, 96, 0.45) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 50% 92%, rgba(255, 178, 88, 0.55) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 68% 96%, rgba(255, 165, 70, 0.45) 0 1.2px, transparent 2.2px),
+    radial-gradient(circle at 86% 92%, rgba(255, 180, 88, 0.55) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 22% 88%, rgba(255, 210, 130, 0.4) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 88%, rgba(255, 210, 130, 0.4) 0 1px, transparent 2px);
+  pointer-events: none;
+  z-index: 0;
+  animation: ember-flicker 5.5s ease-in-out infinite;
+}
+
+@keyframes ember-flicker {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* ----- Biryani skin (saffron strands + warm rice glow) ----- */
+.section-skin--biryani .section-skin__bg {
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 50%, color-mix(in srgb, var(--saffron) 10%, transparent), transparent 75%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, color-mix(in srgb, var(--gold-light) 8%, transparent), transparent 80%);
+}
+
+.section-skin--biryani::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/textures/saffron-strands.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+/* ----- Vegetarian skin (lotus leaves + fresh hint) ----- */
+.section-skin--veg .section-skin__bg {
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 50%, color-mix(in srgb, #6aa86a 7%, transparent), transparent 80%);
+}
+
+/* ----- Chef skin (warm parchment + subtle pinstripe) ----- */
+.section-skin--chef .section-skin__bg {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, color-mix(in srgb, var(--gold) 12%, transparent), transparent 75%),
+    radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--maroon) 6%, transparent), transparent 65%),
+    repeating-linear-gradient(0deg, rgba(120, 80, 30, 0.05) 0 1px, transparent 1px 5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-skin--tandoori::after {
+    animation: none;
+  }
+}
+
+/* Creative banner — image dissolves into section, no hard edges */
+.menu-banner {
+  position: relative;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+}
+
+.parchment-dark {
+  background-color: #1c130a;
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(201, 151, 60, 0.12), transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(111, 23, 23, 0.20), transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(248, 236, 215, 0.02) 0 1px,
+      transparent 1px 3px
+    ),
+    linear-gradient(180deg, #221710, #15100a);
+}
+
+/* Dotted leader between item name and price */
+.menu-leader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.menu-leader__dots {
+  flex: 1;
+  border-bottom: 2px dotted color-mix(in srgb, var(--ink) 32%, transparent);
+  transform: translateY(-0.32rem);
+  min-width: 1.5rem;
+}
+
+.parchment-dark .menu-leader__dots {
+  border-bottom-color: color-mix(in srgb, var(--gold-light) 35%, transparent);
+}
+
+[data-theme="dark"] .menu-leader__dots {
+  border-bottom-color: color-mix(in srgb, var(--gold-light) 35%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .menu-leader__dots {
+    border-bottom-color: color-mix(in srgb, var(--gold-light) 35%, transparent);
+  }
+}
+
+.section-frame--chef {
+  position: relative;
+}
+
+/* Tandoori ember pulse */
+@keyframes ember-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+.ember-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    rgba(217, 119, 6, 0.45),
+    rgba(111, 23, 23, 0.25) 40%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  animation: ember-pulse 4.5s ease-in-out infinite;
+}
+
+/* Biryani steam rise */
+@keyframes steam-rise {
+  0% { transform: translateY(20%) scale(1); opacity: 0; }
+  30% { opacity: 0.6; }
+  100% { transform: translateY(-40%) scale(1.6); opacity: 0; }
+}
+.steam-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.steam-overlay::before,
+.steam-overlay::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  width: 30%;
+  height: 70%;
+  background: radial-gradient(ellipse, rgba(255, 250, 230, 0.45), transparent 65%);
+  filter: blur(14px);
+  animation: steam-rise 6s ease-out infinite;
+}
+.steam-overlay::before { left: 25%; }
+.steam-overlay::after { left: 55%; animation-delay: 2.5s; }
+
+/* Banner fade-out into parchment */
+.banner-fade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, var(--parchment-fade, #f5e9c8) 100%);
+  pointer-events: none;
+}
+
+/* Saffron flourish for biryani section heading */
+.saffron-flourish::before {
+  content: "❋";
+  margin-right: 0.5rem;
+  color: var(--saffron);
+  font-size: 0.85em;
+}
+
+/* Chef gold dot before name */
+.chef-dot::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--gold);
+  margin-right: 0.55rem;
+  vertical-align: middle;
+  box-shadow: 0 0 6px rgba(201, 151, 60, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ember-glow,
+  .steam-overlay::before,
+  .steam-overlay::after {
+    animation: none !important;
+  }
+}
+
+/* Diagonal section transition */
+.diagonal-top::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4rem;
+  background: inherit;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  margin-top: -4rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+
+  .masala-entry-transition {
+    display: none;
+  }
+}
+
+/* ───────── lowhp.studio brand mark ───────── */
+.lowhp-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: color-mix(in oklab, var(--gold) 70%, transparent);
+  text-decoration: none;
+  transition: color 480ms cubic-bezier(0.2, 0.82, 0.22, 1);
+}
+
+.lowhp-mark__prefix {
+  color: color-mix(in oklab, var(--cream) 35%, transparent);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.lowhp-mark__name {
+  position: relative;
+  font-weight: 500;
+}
+
+.lowhp-mark__name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--lowhp-accent) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 520ms cubic-bezier(0.2, 0.82, 0.22, 1);
+}
+
+.lowhp-mark__arrow {
+  display: inline-block;
+  font-size: 0.65em;
+  transform: translate(0, 0);
+  transition: transform 360ms cubic-bezier(0.2, 0.82, 0.22, 1);
+}
+
+.lowhp-mark:hover {
+  color: var(--lowhp-accent);
+}
+
+.lowhp-mark:hover .lowhp-mark__name::after {
+  transform: scaleX(1);
+}
+
+.lowhp-mark:hover .lowhp-mark__arrow {
+  transform: translate(2px, -2px);
+}
+
+.lowhp-mark:focus-visible {
+  outline: 1px solid var(--lowhp-accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.lowhp-mark--splash {
+  font-size: 0.7rem;
+  color: color-mix(in oklab, var(--cream) 45%, transparent);
+}
+
+.masala-entry-transition__credit {
+  position: absolute;
+  z-index: 1;
+  margin-top: clamp(7.5rem, 20vw, 13rem);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--cream) 45%, transparent);
+}
+
+.masala-entry-transition__credit b {
+  font-weight: 500;
+  color: color-mix(in oklab, var(--gold-light) 90%, white);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  margin-left: 0.45em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lowhp-mark,
+  .lowhp-mark__name::after,
+  .lowhp-mark__arrow {
+    transition: none;
+  }
+  .lowhp-mark:hover .lowhp-mark__name::after {
+    transform: scaleX(1);
+  }
+  .lowhp-mark:hover .lowhp-mark__arrow {
+    transform: none;
+  }
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

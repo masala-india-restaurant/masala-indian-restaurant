@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-220 -220 440 440" width="440" height="440">
+  <defs>
+    <g id="petalA">
+      <path d="M0,-180 C26,-150 36,-118 0,-78 C-36,-118 -26,-150 0,-180 Z" fill="none" stroke="#c9973c" stroke-width="1.2"/>
+      <path d="M0,-160 C14,-140 18,-120 0,-100 C-18,-120 -14,-140 0,-160 Z" fill="#c9973c" fill-opacity="0.18" stroke="none"/>
+      <circle cx="0" cy="-138" r="2.4" fill="#c9973c"/>
+    </g>
+    <g id="petalB">
+      <path d="M0,-118 C12,-100 16,-82 0,-66 C-16,-82 -12,-100 0,-118 Z" fill="none" stroke="#c9973c" stroke-width="1"/>
+      <circle cx="0" cy="-92" r="1.6" fill="#c9973c"/>
+    </g>
+    <g id="petalSetA">
+      <use href="#petalA"/>
+      <use href="#petalA" transform="rotate(45)"/>
+      <use href="#petalA" transform="rotate(90)"/>
+      <use href="#petalA" transform="rotate(135)"/>
+      <use href="#petalA" transform="rotate(180)"/>
+      <use href="#petalA" transform="rotate(225)"/>
+      <use href="#petalA" transform="rotate(270)"/>
+      <use href="#petalA" transform="rotate(315)"/>
+    </g>
+    <g id="petalSetAOff">
+      <use href="#petalA" transform="rotate(22.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(67.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(112.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(157.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(202.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(247.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(292.5) scale(0.78)"/>
+      <use href="#petalA" transform="rotate(337.5) scale(0.78)"/>
+    </g>
+    <g id="petalSetB">
+      <use href="#petalB"/>
+      <use href="#petalB" transform="rotate(30)"/>
+      <use href="#petalB" transform="rotate(60)"/>
+      <use href="#petalB" transform="rotate(90)"/>
+      <use href="#petalB" transform="rotate(120)"/>
+      <use href="#petalB" transform="rotate(150)"/>
+      <use href="#petalB" transform="rotate(180)"/>
+      <use href="#petalB" transform="rotate(210)"/>
+      <use href="#petalB" transform="rotate(240)"/>
+      <use href="#petalB" transform="rotate(270)"/>
+      <use href="#petalB" transform="rotate(300)"/>
+      <use href="#petalB" transform="rotate(330)"/>
+    </g>
+  </defs>
+
+  <g fill="none" stroke="#c9973c">
+    <circle r="22" stroke-width="1"/>
+    <circle r="40" stroke-width="0.7" stroke-dasharray="2 4"/>
+    <circle r="68" stroke-width="0.6"/>
+    <circle r="118" stroke-width="0.5" stroke-dasharray="3 6"/>
+    <circle r="200" stroke-width="0.4" stroke-dasharray="4 8"/>
+  </g>
+
+  <g fill="#c9973c" fill-opacity="0.6">
+    <circle r="6"/>
+    <circle r="3" cx="0" cy="-22"/>
+    <circle r="3" cx="0" cy="22"/>
+    <circle r="3" cx="-22" cy="0"/>
+    <circle r="3" cx="22" cy="0"/>
+  </g>
+
+  <use href="#petalSetB" />
+  <use href="#petalSetA" />
+  <use href="#petalSetAOff" />
+
+  <g stroke="#c9973c" stroke-width="0.6" fill="none">
+    <line x1="0" y1="-200" x2="0" y2="-216"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(22.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(45)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(67.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(90)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(112.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(135)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(157.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(180)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(202.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(225)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(247.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(270)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(292.5)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(315)"/>
+    <line x1="0" y1="-200" x2="0" y2="-216" transform="rotate(337.5)"/>
+  </g>
+</svg>
