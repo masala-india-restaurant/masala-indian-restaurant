@@ -304,7 +304,7 @@ function MenuItemEditor({
               )
               : <ImagePlus className="size-6 text-zinc-600" />}
           </div>
-          <Label className="flex h-8 cursor-pointer items-center justify-center gap-1 rounded-md border border-zinc-700 text-[11px] text-zinc-300 hover:bg-zinc-800">
+          <Label className="relative flex h-8 cursor-pointer items-center justify-center gap-1 rounded-md border border-zinc-700 text-[11px] text-zinc-300 hover:bg-zinc-800">
             <Upload className="size-3" />
             {uploading ? "Uploading" : "Image"}
             <input
@@ -684,7 +684,7 @@ function CategoryDetailLoaded({
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <Label className="flex h-8 cursor-pointer items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 text-xs text-zinc-300 hover:bg-zinc-800">
+              <Label className="relative flex h-8 cursor-pointer items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 text-xs text-zinc-300 hover:bg-zinc-800">
                 <Upload className="size-3" />
                 {bannerUploading ? "Uploading" : "Upload image"}
                 <input
