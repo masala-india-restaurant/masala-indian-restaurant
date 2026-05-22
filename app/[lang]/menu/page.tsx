@@ -24,6 +24,15 @@ function requireContent<T>(data: T | null | undefined, label: string): T {
   return data;
 }
 
+function slugToTitle(slug: string): string {
+  return slug
+    .replace(/-[a-z]$/, "")
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function mapNav(data: NonNullable<Awaited<ReturnType<typeof fetchQuery<typeof api.content.getNavbar>>>>): SiteDictionary["nav"] {
   const linkMap = Object.fromEntries(data.links.map((l) => [l.key, l.label]));
   const link = (key: string) => requireContent(linkMap[key], `navbar.links.${key}`);
@@ -88,13 +97,13 @@ export default async function MenuPage({ params }: { params: Params }) {
 
   const categories: MenuCategory[] = rawCategories.map((cat) => ({
     id: cat.slug,
-    label: requireContent(cat.label || null, `menuCategories.${cat.slug}.label`),
+    label: cat.label?.trim() || slugToTitle(cat.slug),
     description: cat.description,
     bannerImage: cat.bannerImage,
     variant: cat.variant as MenuCategory["variant"],
     items: cat.items.map((item) => ({
       id: item.slug,
-      name: requireContent(item.name || null, `menuItems.${item.slug}.name`),
+      name: item.name?.trim() || slugToTitle(item.slug),
       description: item.description,
       price: getMenuItemPrice(item),
       spiceLevel: item.spiceLevel,

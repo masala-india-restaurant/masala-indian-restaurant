@@ -1,5 +1,7 @@
 import { query } from "./_generated/server";
 import { v } from "convex/values";
+import type { QueryCtx } from "./_generated/server";
+import type { Id } from "./_generated/dataModel";
 import { requireAdmin } from "./authz";
 
 const locale = v.union(
@@ -10,6 +12,50 @@ const locale = v.union(
   v.literal("no")
 );
 
+async function getPublishedCategoryContent(
+  ctx: QueryCtx,
+  categoryId: Id<"menuCategories">,
+  locale: string
+) {
+  const localized = await ctx.db
+    .query("menuCategoryContent")
+    .withIndex("by_category_locale", (q) =>
+      q.eq("categoryId", categoryId).eq("locale", locale)
+    )
+    .filter((q) => q.eq(q.field("status"), "published"))
+    .first();
+  if (localized || locale === "en") return localized;
+  return ctx.db
+    .query("menuCategoryContent")
+    .withIndex("by_category_locale", (q) =>
+      q.eq("categoryId", categoryId).eq("locale", "en")
+    )
+    .filter((q) => q.eq(q.field("status"), "published"))
+    .first();
+}
+
+async function getPublishedItemContent(
+  ctx: QueryCtx,
+  itemId: Id<"menuItems">,
+  locale: string
+) {
+  const localized = await ctx.db
+    .query("menuItemContent")
+    .withIndex("by_item_locale", (q) =>
+      q.eq("itemId", itemId).eq("locale", locale)
+    )
+    .filter((q) => q.eq(q.field("status"), "published"))
+    .first();
+  if (localized || locale === "en") return localized;
+  return ctx.db
+    .query("menuItemContent")
+    .withIndex("by_item_locale", (q) =>
+      q.eq("itemId", itemId).eq("locale", "en")
+    )
+    .filter((q) => q.eq(q.field("status"), "published"))
+    .first();
+}
+
 export const getCategories = query({
   args: { locale },
   handler: async (ctx, { locale }) => {
@@ -18,13 +64,7 @@ export const getCategories = query({
 
     return Promise.all(
       sorted.map(async (cat) => {
-        const content = await ctx.db
-          .query("menuCategoryContent")
-          .withIndex("by_category_locale", (q) =>
-            q.eq("categoryId", cat._id).eq("locale", locale)
-          )
-          .filter((q) => q.eq(q.field("status"), "published"))
-          .first();
+        const content = await getPublishedCategoryContent(ctx, cat._id, locale);
 
         const items = await ctx.db
           .query("menuItems")
@@ -35,13 +75,11 @@ export const getCategories = query({
 
         const localizedItems = await Promise.all(
           sortedItems.map(async (item) => {
-            const itemContent = await ctx.db
-              .query("menuItemContent")
-              .withIndex("by_item_locale", (q) =>
-                q.eq("itemId", item._id).eq("locale", locale)
-              )
-                  .filter((q) => q.eq(q.field("status"), "published"))
-                  .first();
+            const itemContent = await getPublishedItemContent(
+              ctx,
+              item._id,
+              locale
+            );
             const imageFromStorage = item.imageId
               ? await ctx.storage.getUrl(item.imageId)
               : null;
