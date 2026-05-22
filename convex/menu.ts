@@ -12,10 +12,12 @@ const locale = v.union(
   v.literal("no")
 );
 
+type Locale = "en" | "nl" | "es" | "fr" | "no";
+
 async function getPublishedCategoryContent(
   ctx: QueryCtx,
   categoryId: Id<"menuCategories">,
-  locale: string
+  locale: Locale
 ) {
   const localized = await ctx.db
     .query("menuCategoryContent")
@@ -37,7 +39,7 @@ async function getPublishedCategoryContent(
 async function getPublishedItemContent(
   ctx: QueryCtx,
   itemId: Id<"menuItems">,
-  locale: string
+  locale: Locale
 ) {
   const localized = await ctx.db
     .query("menuItemContent")
