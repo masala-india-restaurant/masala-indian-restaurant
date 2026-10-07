@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import MenuClient from "@/components/menu/MenuClient";
 import type { SiteDictionary } from "@/lib/i18n";
 import { isLocale, type Locale } from "@/lib/locales";
+import { localizeSeededMenuItem } from "@/lib/menu-localization";
 import type { MenuCategory, ProteinPrices, SpiceLevel } from "@/data/menu";
 
 type Params = Promise<{ lang: string }>;
@@ -101,7 +102,7 @@ export default async function MenuPage({ params }: { params: Params }) {
     description: cat.description,
     bannerImage: cat.bannerImage,
     variant: cat.variant as MenuCategory["variant"],
-    items: cat.items.map((item) => ({
+    items: cat.items.map((item) => localizeSeededMenuItem(locale, {
       id: item.slug,
       name: item.name?.trim() || slugToTitle(item.slug),
       description: item.description,
