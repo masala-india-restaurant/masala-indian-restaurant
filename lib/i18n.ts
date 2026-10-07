@@ -1,5 +1,6 @@
-import type { MenuCategory, MenuItem, SpiceLevel } from "@/data/menu";
+import type { MenuCategory, SpiceLevel } from "@/data/menu";
 import { menuCategories } from "@/data/menu";
+import { localizeSeededMenuItem } from "@/lib/menu-localization";
 import type { Locale } from "@/lib/locales";
 
 export {
@@ -861,36 +862,6 @@ export const menuCategoryText: Record<Locale, Partial<Record<string, Pick<MenuCa
   },
 };
 
-const noteText: Record<Locale, Record<string, string>> = {
-  en: {},
-  nl: { "2 pieces": "2 stuks", "Per person": "Per persoon" },
-  es: { "2 pieces": "2 piezas", "Per person": "Por persona" },
-  fr: { "2 pieces": "2 pieces", "Per person": "Par personne" },
-  no: { "2 pieces": "2 stk", "Per person": "Per person" },
-};
-
-function localizeItem(locale: Locale, item: MenuItem): MenuItem {
-  if (locale === "en") return item;
-  return {
-    ...item,
-    note: item.note ? noteText[locale][item.note] ?? item.note : undefined,
-    description: item.description
-      ? draftMenuDescription(locale, item.description)
-      : undefined,
-  };
-}
-
-function draftMenuDescription(locale: Locale, description: string) {
-  const prefix: Record<Exclude<Locale, "en">, string> = {
-    nl: "Huisgemaakte bereiding:",
-    es: "Preparacion de la casa:",
-    fr: "Preparation maison:",
-    no: "Husets tilberedelse:",
-  };
-  if (locale === "en") return description;
-  return `${prefix[locale]} ${description}`;
-}
-
 export function getDictionary(locale: Locale) {
   return dictionaries[locale];
 }
@@ -899,6 +870,6 @@ export function getLocalizedMenuCategories(locale: Locale): MenuCategory[] {
   return menuCategories.map((category) => ({
     ...category,
     ...menuCategoryText[locale][category.id],
-    items: category.items.map((item) => localizeItem(locale, item)),
+    items: category.items.map((item) => localizeSeededMenuItem(locale, item)),
   }));
 }

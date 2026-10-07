@@ -2,6 +2,7 @@ import { internalMutation } from "./_generated/server";
 import { v } from "convex/values";
 import { locales, dictionaries, menuCategoryText } from "@/lib/i18n";
 import { menuCategories } from "@/data/menu";
+import { localizeSeededMenuItem } from "@/lib/menu-localization";
 
 const heroSlides = [
   {
@@ -387,13 +388,14 @@ export const items = internalMutation({
       });
 
       for (const locale of locales) {
+        const localizedItem = localizeSeededMenuItem(locale, item);
         await ctx.db.insert("menuItemContent", {
           itemId,
           locale,
           status: "published",
-          name: item.name,
-          description: item.description,
-          note: item.note,
+          name: localizedItem.name,
+          description: localizedItem.description,
+          note: localizedItem.note,
         });
       }
     }
